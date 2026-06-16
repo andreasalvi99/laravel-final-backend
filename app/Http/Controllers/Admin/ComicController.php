@@ -75,9 +75,29 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+
+        
+
+        $comic->title = $data['title'];
+        $comic->description = $data['description'];
+        $comic->brand_id = $data['brand_id'];
+        $comic->price = $data['price'];
+        $comic->release_date = $data['release_date'];
+
+        // dd($data);
+
+        if(array_key_exists('cover_img', $data)) {
+            Storage::delete($comic->cover_img);
+            $img_url = Storage::putFile('comics', $data['cover_img']);
+            $comic->cover_img = $img_url;
+        }
+
+        $comic->update();
+
+        return redirect()->route('comics.index');
     }
 
     /**

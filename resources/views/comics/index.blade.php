@@ -3,7 +3,7 @@
 @section('content')
     <section id="comics">
         <div class="container mt-5">
-            {{-- Button for modal --}}
+            {{-- Button for modal create--}}
             <button type="button" class="btn btn-outline-primary my-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                 <i class="bi bi-plus-lg"></i>
             </button>
@@ -41,15 +41,81 @@
                                 <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
                                     &euro;{{$comic->price}}
                                 </a>
+                            </td>
+                            <td>
+                                <!-- Button trigger modal edit-->
+                            <button type="button" class="btn btn-bd-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editbackdrop{{$comic->id}}">
+                                <i class="bi bi-pencil-fill"></i>
+                            </button>
+                                {{-- <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
+                                    <button class="btn btn-bd-primary btn-sm">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </button>
+                                </a> --}}
                             </td>  
                         </tr>
+
+                        <!-- Modal edit-->
+                            <div class="modal fade" id="editbackdrop{{$comic->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modifica fumetto</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-control">
+                                        <form action="{{route('comics.update', $comic->id)}}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="mb-3">
+                                                <label for="titolo" class="form-label">Titolo</label>
+                                                <input type="text" class="form-control" id="titolo" name="title" value="{{$comic->title}}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="brand_id" class="form-label">Brand</label>
+                                                <select type="text" class="form-control" id="brand_id" name="brand_id">
+                                                    @foreach ($brands as $brand)
+                                                        <option value="{{$comic->brand_id}}" {{$comic->brand_id == $brand->id ? "selected" : ""}}>{{$brand->name}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="descrizione" class="form-label">Descrizione</label>
+                                                <textarea class="form-control" id="descrizione" name="description" rows="2">{{$comic->description}}</textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="prezzo" class="form-label">Prezzo</label>
+                                                <input type="text" class="form-control" id="prezzo" name="price" value="{{$comic->price}}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="img" class="form-label">Immagine</label>
+                                                <input type="file" class="form-control" id="img" name="cover_img">
+                                                @if ($comic->cover_img)
+                                                    <img src="{{asset('storage/' . $comic->cover_img)}}" alt="" class="w-50 h-50">
+                                                @endif
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="release_date" class="form-label">Data di pubblicazione</label>
+                                                <input type="text" class="form-control" id="release_date" name="release_date" value="{{$comic->release_date}}">
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-outline-success">Salva</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
                         @endforeach
                 </tbody>
             </table>
         </div>
     </section>
 
-    <!-- Modal -->
+    <!-- Modal create-->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
