@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Brand;
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ComicController extends Controller
 {
@@ -14,8 +16,9 @@ class ComicController extends Controller
     public function index()
     {
         $comics = Comic::all();
+        $brands = Brand::all();
 
-        return view('comics.index', compact('comics'));
+        return view('comics.index', compact('comics', 'brands'));
     }
 
     /**
@@ -31,7 +34,26 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        // dd($data);
+
+        $newComic = new Comic();
+        
+        $newComic->brand_id = $data['brand_id'];
+        $newComic->title = $data['title'];
+        $newComic->description = $data['description'];
+        $newComic->price = $data['price'];
+        $newComic->release_date = $data['release_date'];
+
+        if(array_key_exists('cover_img', $data)) {
+            $img_url = Storage::putFile('comics', $data['cover_img']);
+            $newComic->cover_img = $img_url;
+        }
+
+        $newComic->save();
+
+        return redirect()->route('comics.index');
     }
 
     /**

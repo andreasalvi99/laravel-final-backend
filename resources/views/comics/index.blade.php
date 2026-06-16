@@ -13,6 +13,7 @@
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Titolo</th>
+                        <th scope="col">Brand</th>
                         <th scope="col">Pubblicazione</th>
                         <th scope="col">Prezzo</th>
                     </tr>
@@ -25,19 +26,21 @@
                                 <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
                                     {{$comic->title}}
                                 </a>
-                                
+                            </td>
+                             <td>
+                                <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
+                                    {{$comic->brand->name}}
+                                </a>
                             </td>
                             <td>
                                 <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
                                     {{$comic->release_date}}
                                 </a>
-                                
                             </td>
                             <td>
                                 <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
                                     &euro;{{$comic->price}}
                                 </a>
-                                
                             </td>  
                         </tr>
                         @endforeach
@@ -60,30 +63,38 @@
                 @csrf
                 <div class="mb-3">
                     <label for="titolo" class="form-label">Titolo</label>
-                    <input type="email" class="form-control" id="titolo" name="titolo" placeholder="name@example.com">
+                    <input type="text" class="form-control" id="titolo" name="title">
+                </div>
+                <div class="mb-3">
+                    <label for="brand_id" class="form-label">Brand</label>
+                    <select type="text" class="form-control" id="brand_id" name="brand_id">
+                        @foreach ($brands as $brand)
+                            <option value="{{$brand->id}}">{{$brand->name}}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="descrizione" class="form-label">Descrizione</label>
-                    <textarea class="form-control" id="descrizione" name="descrizione" rows="2"></textarea>
+                    <textarea class="form-control" id="descrizione" name="description" rows="2"></textarea>
                 </div>
                 <div class="mb-3">
                     <label for="prezzo" class="form-label">Prezzo</label>
-                    <input type="text" class="form-control" id="prezzo" name="prezzo">
+                    <input type="text" class="form-control" id="prezzo" name="price">
                 </div>
                 <div class="mb-3">
                     <label for="img" class="form-label">Immagine</label>
-                    <input type="file" class="form-control" id="img" name="img">
+                    <input type="file" class="form-control" id="img" name="cover_img">
                 </div>
                 <div class="mb-3">
                     <label for="release_date" class="form-label">Data di pubblicazione</label>
                     <input type="text" class="form-control" id="release_date" name="release_date">
                 </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-outline-success">Salva</button>
+                </div>
             </form>
         </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-outline-success">Salva</button>
       </div>
     </div>
   </div>
