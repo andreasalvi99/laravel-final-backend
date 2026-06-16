@@ -20,7 +20,7 @@ class ComicTableSeeder extends Seeder
 
         $newComic->title = 'AQUAMAN #49';
         $newComic->description = "La verità su come Aquaman abbia perso la memoria viene finalmente rivelata! Ma Arthur riuscirà ad affrontare la scioccante realtà? Chi sceglierà di sposare la Regina Mera? E come riuscirà Arthur a sfuggire alle fauci della terrificante Madre Squalo? Le maree del cambiamento stanno arrivando e tutto porterà allo storico AQUAMAN #50 del prossimo mese!";
-        $newComic->cover_img = 'comics/acquaman-1.avif';
+        $newComic->cover_img = 'comics/aquaman-1.avif';
         $newComic->price = 3.99;
         $newComic->release_date = '2019-06-19';
         $newComic->brand_id = $dc->id;
