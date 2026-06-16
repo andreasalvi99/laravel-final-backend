@@ -11,7 +11,7 @@
                     <div class="col-md-8">
                         <div class="card-body p-5">
                             <h5 class="card-title mt-3">{{$comic->title}}</h5>
-                            <p class="card-text mt-5 overflow-auto" style="height: 200px">
+                            <p class="card-text mt-5 overflow-auto" style="min-height: 100px">
                                {{$comic->description}}
                             </p>
                             <p class="card-text mt-5">
