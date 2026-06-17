@@ -6,7 +6,7 @@
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{asset('storage/' . $comic->cover_img)}}" class="img-fluid rounded-start" alt="...">
+                        <img src="{{asset('storage/' . $comic->cover_img)}}" class="img-fluid rounded-start h-100" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body p-5">
@@ -20,6 +20,7 @@
                                    {{$comic->release_date}}
                                 </small>
                             </p>
+                            <img src="{{asset('storage/' . $comic->brand->logo)}}" alt="" style="{{$comic->brand->name === "Marvel Comics" ? "height: 80px; width: 200px" : "height: 100px; width:100px"}}">
                         </div>
                     </div>
                 </div>
