@@ -29,8 +29,8 @@
                             </td>
                              <td>
                                 <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
-                                    {{$comic->brand->name}}
-                                </a>
+                                    <img src="{{asset('storage/' . $comic->brand->logo)}}" alt="" style="height: 30px">
+                             </a>
                             </td>
                             <td>
                                 <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
@@ -50,14 +50,6 @@
                             <button type="button" class="btn btn-bd-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#deletemodal{{$comic->id}}">
                                 <i class="bi bi-trash3-fill"></i>
                             </button>
-
-                            {{-- <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-bd-secondary btn-sm" type="submit">
-                                    <i class="bi bi-trash3-fill"></i>
-                                </button>
-                            </form> --}}
                             </td>  
                         </tr>
 
