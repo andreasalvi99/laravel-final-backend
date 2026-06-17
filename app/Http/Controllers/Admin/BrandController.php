@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
+use App\Models\Comic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -70,9 +71,22 @@ class BrandController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Brand $brand)
     {
-        //
+        $data = $request->all();
+
+        $brand->name = $data['name'];
+        $brand->description = $data['description'];
+        
+        if(array_key_exists('logo', $data)) {
+            Storage::delete($brand->logo);
+            $img_url = Storage::putFile('brands', $data['logo']);
+            $brand->logo = $img_url;
+        }
+        
+        $brand->update();
+
+        return redirect()->route('brands.index');
     }
 
     /**

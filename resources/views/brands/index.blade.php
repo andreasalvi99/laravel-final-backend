@@ -28,15 +28,56 @@
                         </td>
                         <td>
                             <div class="d-flex gap-1">
-                                <button class="btn btn-bd-primary btn-sm">
-                                    <i class="bi bi-pencil-fill"></i>
-                                </button>
-                                <button class="btn btn-bd-secondary btn-sm ">
-                                    <i class="bi bi-trash3-fill"></i>
-                                </button>
+                                <!-- Button trigger modal edit-->
+                            <button type="button" class="btn btn-bd-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editbackdrop{{$brand->id}}">
+                                <i class="bi bi-pencil-fill"></i>
+                            </button>
+                                <!-- Button trigger modal delete-->
+                            <button type="button" class="btn btn-bd-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#deletemodal{{$brand->id}}">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
                             </div>
                         </td>
                     </tr>
+
+                     <!-- Modal edit-->
+                            <div class="modal fade" id="editbackdrop{{$brand->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modifica brand</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-control">
+                                        <form action="{{route('brands.update', $brand->id)}}" method="POST" enctype="multipart/form-data">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="mb-3">
+                                                <label for="name" class="form-label">Nome</label>
+                                                <input type="text" class="form-control" id="name" name="name" value="{{$brand->name}}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="description" class="form-label">Descrizione</label>
+                                                <textarea class="form-control" id="description" name="description" rows="2">{{$brand->description}}</textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="logo" class="form-label">Logo</label>
+                                                <input type="file" class="form-control" id="logo" name="logo">
+                                                @if ($brand->logo)
+                                                    <img src="{{asset('storage/' . $brand->logo)}}" alt="" class="w-50 h-50">
+                                                @endif
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-outline-success">Salva</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
                     @endforeach
                 </tbody>
         </table>
