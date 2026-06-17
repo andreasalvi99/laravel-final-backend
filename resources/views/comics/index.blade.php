@@ -152,7 +152,7 @@
                 @csrf
                 <div class="mb-3">
                     <label for="titolo" class="form-label">Titolo</label>
-                    <input type="text" class="form-control" id="titolo" name="title">
+                    <input type="text" class="form-control" id="titolo" name="title" required>
                 </div>
                 <div class="mb-3">
                     <label for="brand_id" class="form-label">Brand</label>
@@ -168,11 +168,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="prezzo" class="form-label">Prezzo</label>
-                    <input type="text" class="form-control" id="prezzo" name="price">
+                    <input type="text" class="form-control" id="prezzo" name="price" required>
                 </div>
                 <div class="mb-3">
                     <label for="img" class="form-label">Immagine</label>
-                    <input type="file" class="form-control" id="img" name="cover_img">
+                    <input type="file" class="form-control" id="img" name="cover_img" required>
                 </div>
                 <div class="mb-3">
                     <label for="release_date" class="form-label">Data di pubblicazione</label>
