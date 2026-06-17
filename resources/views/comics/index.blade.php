@@ -124,7 +124,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body fw-semibold fs-4">
-                                    Sei sicuro di voler eliminare l'elemento selezionato?
+                                    Sei sicuro di voler eliminare {{$comic->title}}?
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Chiudi</button>
