@@ -47,13 +47,17 @@
                             <button type="button" class="btn btn-bd-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editbackdrop{{$comic->id}}">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
-                            <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                            <button type="button" class="btn btn-bd-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#deletemodal{{$comic->id}}">
+                                <i class="bi bi-trash3-fill"></i>
+                            </button>
+
+                            {{-- <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-bd-secondary btn-sm" type="submit">
                                     <i class="bi bi-trash3-fill"></i>
                                 </button>
-                            </form>
+                            </form> --}}
                             </td>  
                         </tr>
 
@@ -107,6 +111,30 @@
                                             </div>
                                         </form>
                                     </div>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+
+                            {{-- Modal delete --}}
+                            <div class="modal fade" id="deletemodal{{$comic->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body fw-semibold fs-4">
+                                    Sei sicuro di voler eliminare l'elemento selezionato?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Chiudi</button>
+                                    <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-bd-secondary btn-sm" type="submit">
+                                            Elimina
+                                        </button>
+                                    </form>
                                 </div>
                                 </div>
                             </div>
