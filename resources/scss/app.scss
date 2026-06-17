@@ -1,10 +1,13 @@
 @import "~bootstrap/scss/bootstrap";
 
 $bd-yellow: #e8ae41;
+$bd-red: #680404;
 
 :root {
     --bd-yellow-bg: #e8ae41;
     --bd-yellow-rgb: 232, 174, 65;
+    --bd-red-bg: rgb(169, 5, 5);
+    --bd-red-rgb: 169, 5, 5;
 }
 
 .btn-bd-primary {
@@ -15,8 +18,22 @@ $bd-yellow: #e8ae41;
     --bs-btn-hover-color: var(--bs-white);
     --bs-btn-hover-bg: #{shade-color($bd-yellow, 10%)};
     --bs-btn-hover-border-color: #{shade-color($bd-yellow, 10%)};
-    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-focus-shadow-rgb: var(--bd-yellow-rgb);
     --bs-btn-active-color: var(--bs-btn-hover-color);
     --bs-btn-active-bg: #{shade-color($bd-yellow, 20%)};
     --bs-btn-active-border-color: #{shade-color($bd-yellow, 20%)};
+}
+
+.btn-bd-secondary {
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: var(--bd-red-bg);
+    --bs-btn-border-color: var(--bd-red-bg);
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #{shade-color($bd-red, 10%)};
+    --bs-btn-hover-border-color: #{shade-color($bd-red, 10%)};
+    --bs-btn-focus-shadow-rgb: var(--bd-red-rgb);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #{shade-color($bd-red, 20%)};
+    --bs-btn-active-border-color: #{shade-color($bd-red, 20%)};
 }

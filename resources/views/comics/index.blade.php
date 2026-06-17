@@ -42,16 +42,18 @@
                                     &euro;{{$comic->price}}
                                 </a>
                             </td>
-                            <td>
+                            <td class="d-flex gap-2">
                                 <!-- Button trigger modal edit-->
                             <button type="button" class="btn btn-bd-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editbackdrop{{$comic->id}}">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
-                                {{-- <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
-                                    <button class="btn btn-bd-primary btn-sm">
-                                        <i class="bi bi-pencil-fill"></i>
-                                    </button>
-                                </a> --}}
+                            <form action="{{route('comics.destroy', $comic->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-bd-secondary btn-sm" type="submit">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </button>
+                            </form>
                             </td>  
                         </tr>
 
