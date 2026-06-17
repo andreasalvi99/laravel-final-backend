@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BrandController extends Controller
 {
@@ -31,7 +32,23 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        // dd($data);
+
+        $newBrand = new Brand();
+
+        $newBrand->name = $data['name'];
+        $newBrand->description = $data['description'];
+
+        if(array_key_exists('logo', $data)) {
+            $img_url = Storage::putFile('brands', $data['logo']);
+            $newBrand->logo = $img_url;
+        }
+
+        $newBrand->save();
+        
+        return redirect()->route('brands.index');
     }
 
     /**
