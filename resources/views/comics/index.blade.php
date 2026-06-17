@@ -47,6 +47,7 @@
                             <button type="button" class="btn btn-bd-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editbackdrop{{$comic->id}}">
                                 <i class="bi bi-pencil-fill"></i>
                             </button>
+                                <!-- Button trigger modal delete-->
                             <button type="button" class="btn btn-bd-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#deletemodal{{$comic->id}}">
                                 <i class="bi bi-trash3-fill"></i>
                             </button>
