@@ -16,11 +16,22 @@
                             </p>
                             <p class="card-text">
                                 Pubblicazione:
-                                <small class="text-body-secondary">
-                                    {{$comic->release_date}}
-                                </small>
+                                <span class="text-body-secondary">
+                                    {{\Carbon\Carbon::parse($comic->release_date)->translatedFormat('j')}}
+                                    {{ucfirst(\Carbon\Carbon::parse($comic->release_date)->translatedFormat('F'))}},
+                                    {{\Carbon\Carbon::parse($comic->release_date)->translatedFormat('Y')}}
+                                </span>
                             </p>
-                            <img src="{{asset('storage/' . $comic->brand->logo)}}" alt="" style="{{$comic->brand->name === "Marvel Comics" ? "height: 80px; width: 200px" : "height: 100px; width:100px"}}">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <img src="{{asset('storage/' . $comic->brand->logo)}}" alt="" style="{{$comic->brand->name === "Marvel Comics" ? "height: 80px; width: 200px" : "height: 100px; width:100px"}}">
+                                    <p class="align-self-end m-0 fs-1 fw-semibold">
+                                        <i>
+                                            &euro;{{$comic->price}}
+                                        </i>
+                                        
+                                    </p>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
