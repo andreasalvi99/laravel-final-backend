@@ -78,6 +78,30 @@
                                 </div>
                             </div>
                             </div>
+
+                            {{-- Modal delete --}}
+                            <div class="modal fade" id="deletemodal{{$brand->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body fw-semibold fs-4">
+                                    Sei sicuro di voler eliminare {{$brand->name}}?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Chiudi</button>
+                                    <form action="{{route('brands.destroy', $brand->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-bd-secondary btn-sm" type="submit">
+                                            Elimina
+                                        </button>
+                                    </form>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
                     @endforeach
                 </tbody>
         </table>
