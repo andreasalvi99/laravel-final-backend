@@ -55,9 +55,9 @@ class CharacterController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Character $character)
     {
-        //
+        return view('characters.show', compact('character'));
     }
 
     /**

@@ -31,7 +31,10 @@
                                 <span>
                                     Featuring: 
                                     @foreach ($comic->characters as $character)
+                                    <a href="{{route('characters.show', $character->id)}}" class="text-decoration-none text-dark">
                                         {{$character->name . ','}}
+                                    </a>
+                                        
                                     @endforeach
                                 </span>
                             </div>
