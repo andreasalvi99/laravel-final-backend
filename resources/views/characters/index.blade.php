@@ -17,9 +17,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($characters as $character)
+                    @foreach ($characters as $index => $character)
                     <tr>
-                        <th scope="row">{{$character->id}}</th>
+                        {{-- <th scope="row">{{$character->id}}</th> --}}
+                        <th scope="row">{{$index + 1}}</th>
                         <td>{{$character->name}}</td>
                         <td>
                             <img src="{{asset('storage/' . $character->character_img)}}" alt="" class="w-25 h-25">

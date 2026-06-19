@@ -19,9 +19,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($comics as $comic)
+                    @foreach ($comics as $index => $comic)
                         <tr>
-                            <th scope="row">{{$comic->id}}</th>
+                            <th scope="row">{{$index + 1}}</th>
                             <td>
                                 <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
                                     {{$comic->title}}
