@@ -75,7 +75,7 @@
                                                 <label for="brand_id" class="form-label">Brand</label>
                                                 <select type="text" class="form-control" id="brand_id" name="brand_id">
                                                     @foreach ($brands as $brand)
-                                                        <option value="{{$comic->brand_id}}" {{$comic->brand_id == $brand->id ? "selected" : ""}}>{{$brand->name}}</option>
+                                                        <option value="{{$brand->id}}" {{$comic->brand_id == $brand->id ? "selected" : ""}}>{{$brand->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

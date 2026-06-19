@@ -87,7 +87,7 @@ class ComicController extends Controller
     {
         $data = $request->all();
 
-        
+        // dd($data);
 
         $comic->title = $data['title'];
         $comic->description = $data['description'];
