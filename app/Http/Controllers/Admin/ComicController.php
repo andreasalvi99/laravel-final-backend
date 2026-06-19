@@ -55,7 +55,9 @@ class ComicController extends Controller
 
         $newComic->save();
 
-        $newComic->characters()->attach($data['characters']);
+        if($request->has('characters')) {
+            $newComic->characters()->attach($data['characters']);
+        }
 
         return redirect()->route('comics.index');
     }
@@ -103,7 +105,13 @@ class ComicController extends Controller
 
         $comic->update();
 
-        return redirect()->route('comics.index');
+        if($request->has('characters')) {
+            $comic->characters()->sync($data['characters']);
+        } else {
+            $comic->characters()->detach();
+        }
+
+        return redirect()->route('comics.show', $comic->id);
     }
 
     /**

@@ -34,7 +34,6 @@
                                     <a href="{{route('characters.show', $character->id)}}" class="text-decoration-none text-dark">
                                         {{$character->name . ','}}
                                     </a>
-                                        
                                     @endforeach
                                 </span>
                             </div>
@@ -52,13 +51,4 @@
             </div>
         </div>
     </section>
-
-    {{-- <section id="related-characters">
-        <div class="container mt-5">
-            <h1>Personaggi correlati:</h1>
-            @foreach ($comic->characters as $character)
-                <span class="badge rounded-pill text-bg-primary">{{$character->name}}</span>
-            @endforeach
-        </div>
-    </section> --}}
 @endsection

@@ -80,6 +80,14 @@
                                                 </select>
                                             </div>
                                             <div class="mb-3">
+                                                @foreach ($characters as $character)
+                                                <div class="d-inline-block me-3">
+                                                    <input type="checkbox" name="characters[]" id="character-{{$character->id}}" value="{{$character->id}}" class="form-check-input" {{$comic->characters->contains($character->id) ? "checked" : ""}}>
+                                                    <label for="character-{{$character->id}}" class="form-label">{{$character->name}}</label>
+                                                </div>
+                                                @endforeach
+                                            </div>
+                                            <div class="mb-3">
                                                 <label for="descrizione" class="form-label">Descrizione</label>
                                                 <textarea class="form-control" id="descrizione" name="description" rows="2">{{$comic->description}}</textarea>
                                             </div>
@@ -164,8 +172,11 @@
                 </div>
                 <div class="mb-3">
                     @foreach ($characters as $character)
-                    <input type="checkbox" name="characters[]" id="character-{{$character->id}}" value="{{$character->id}}" class="form-check-input">
-                    <label for="character-{{$character->id}}" class="form-label">{{$character->name}}</label>
+                    <div class="d-inline-block me-3">
+                        <input type="checkbox" name="characters[]" id="character-{{$character->id}}" value="{{$character->id}}" class="form-check-input">
+                        <label for="character-{{$character->id}}" class="form-label">{{$character->name}}</label>
+                    </div>
+                    
                     @endforeach
                 </div>
                 <div class="mb-3">
