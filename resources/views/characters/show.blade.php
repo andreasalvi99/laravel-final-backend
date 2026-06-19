@@ -14,7 +14,7 @@
                         <img src="{{asset('storage/' . $character->character_img)}}" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-8">
-                        <div class="card-body p-5 d-flex flex-column justify-content-between h-100">
+                        <div class="card-body p-5 d-flex flex-column justify-content-around h-100">
                             <h5 class="card-title">{{$character->name}}</h5>
                             <p class="card-text">{{$character->description}}</p>
                         </div>

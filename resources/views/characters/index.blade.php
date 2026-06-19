@@ -12,22 +12,22 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Nome</th>
                         <th scope="col">Immagine</th>
+                        <th scope="col">Nome</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($characters as $index => $character)
                     <tr>
                         <th scope="row">{{$index + 1}}</th>
-                            <td>
-                                <a href="{{route('characters.show', $character->id)}}" class="text-decoration-none text-dark">
-                                    {{$character->name}}
+                        <td>
+                                <a href="{{route('characters.show', $character->id)}}">
+                                    <img src="{{asset('storage/' . $character->character_img)}}" alt="" style="height: 80px; width: 75px" class="rounded-circle">
                                 </a>
                             </td>
                             <td>
-                                <a href="{{route('characters.show', $character->id)}}">
-                                    <img src="{{asset('storage/' . $character->character_img)}}" alt="" style="height: 100px; width: 70px">
+                                <a href="{{route('characters.show', $character->id)}}" class="text-decoration-none text-dark">
+                                    {{$character->name}}
                                 </a>
                             </td>
                             <td>
