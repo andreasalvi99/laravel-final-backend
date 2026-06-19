@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BrandController;
+use App\Http\Controllers\Admin\CharacterController;
 use App\Http\Controllers\Admin\ComicController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +24,9 @@ Route::resource('comics', ComicController::class)
     ->middleware(['auth', 'verified']);
 
 Route::resource('brands', BrandController::class)
+    ->middleware(['auth', 'verified']);
+
+Route::resource('characters', CharacterController::class)
     ->middleware(['auth', 'verified']);
 
 require __DIR__.'/auth.php';
