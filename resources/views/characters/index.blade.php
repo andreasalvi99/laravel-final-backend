@@ -20,22 +20,28 @@
                     @foreach ($characters as $index => $character)
                     <tr>
                         <th scope="row">{{$index + 1}}</th>
-                        <td>{{$character->name}}</td>
-                        <td>
-                            <img src="{{asset('storage/' . $character->character_img)}}" alt="" style="height: 100px; width: 70px">
-                        </td>
-                        <td>
-                            <div class="d-flex gap-1">
-                                <!-- Button trigger modal edit-->
-                            <button type="button" class="btn btn-bd-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editbackdrop{{$character->id}}">
-                                <i class="bi bi-pencil-fill"></i>
-                            </button>
-                                <!-- Button trigger modal delete-->
-                            <button type="button" class="btn btn-bd-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#deletemodal{{$character->id}}">
-                                <i class="bi bi-trash3-fill"></i>
-                            </button>
-                            </div>
-                        </td>
+                            <td>
+                                <a href="{{route('characters.show', $character->id)}}" class="text-decoration-none text-dark">
+                                    {{$character->name}}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{{route('characters.show', $character->id)}}">
+                                    <img src="{{asset('storage/' . $character->character_img)}}" alt="" style="height: 100px; width: 70px">
+                                </a>
+                            </td>
+                            <td>
+                                <div class="d-flex flex-column gap-1">
+                                    <!-- Button trigger modal edit-->
+                                    <button type="button" class="btn btn-bd-primary" data-bs-toggle="modal" data-bs-target="#editbackdrop{{$character->id}}">
+                                        <i class="bi bi-pencil-fill"></i>
+                                    </button>
+                                        <!-- Button trigger modal delete-->
+                                    <button type="button" class="btn btn-bd-secondary" data-bs-toggle="modal" data-bs-target="#deletemodal{{$character->id}}">
+                                        <i class="bi bi-trash3-fill"></i>
+                                    </button>
+                                </div>
+                            </td>
                     </tr>
 
                     <!-- Modal edit-->

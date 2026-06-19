@@ -30,9 +30,9 @@
                             <div>
                                 <span>
                                     Featuring: 
-                                    @foreach ($comic->characters as $character)
+                                    @foreach ($comic->characters as $index => $character)
                                     <a href="{{route('characters.show', $character->id)}}" class="text-decoration-none text-dark">
-                                        {{$character->name . ','}}
+                                        {{$character->name}}{{$index < $comic->characters->count() - 1 ? "," : ""}}
                                     </a>
                                     @endforeach
                                 </span>
