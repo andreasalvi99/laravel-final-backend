@@ -27,20 +27,35 @@
                                     {{\Carbon\Carbon::parse($comic->release_date)->translatedFormat('Y')}}
                                 </span>
                             </p>
+                            <div>
+                                <span>
+                                    Featuring: 
+                                    @foreach ($comic->characters as $character)
+                                        {{$character->name . ','}}
+                                    @endforeach
+                                </span>
+                            </div>
                             <div class="d-flex justify-content-between align-items-center">
                                 <img src="{{asset('storage/' . $comic->brand->logo)}}" alt="" style="{{$comic->brand->name === "Marvel Comics" ? "height: 80px; width: 200px" : "height: 100px; width:100px"}}">
                                     <p class="align-self-end m-0 fs-1 fw-semibold">
                                         <i>
                                             &euro;{{$comic->price}}
                                         </i>
-                                        
                                     </p>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    {{-- <section id="related-characters">
+        <div class="container mt-5">
+            <h1>Personaggi correlati:</h1>
+            @foreach ($comic->characters as $character)
+                <span class="badge rounded-pill text-bg-primary">{{$character->name}}</span>
+            @endforeach
+        </div>
+    </section> --}}
 @endsection

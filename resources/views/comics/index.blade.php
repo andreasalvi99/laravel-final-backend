@@ -163,6 +163,12 @@
                     </select>
                 </div>
                 <div class="mb-3">
+                    @foreach ($characters as $character)
+                    <input type="checkbox" name="characters[]" id="character-{{$character->id}}" value="{{$character->id}}" class="form-check-input">
+                    <label for="character-{{$character->id}}" class="form-label">{{$character->name}}</label>
+                    @endforeach
+                </div>
+                <div class="mb-3">
                     <label for="descrizione" class="form-label">Descrizione</label>
                     <textarea class="form-control" id="descrizione" name="description" rows="2"></textarea>
                 </div>
@@ -179,7 +185,7 @@
                     <input type="text" class="form-control" id="release_date" name="release_date">
                 </div>
                 <div class="modal-footer">
-                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Chiudi</button>
                   <button type="submit" class="btn btn-outline-success">Salva</button>
                 </div>
             </form>

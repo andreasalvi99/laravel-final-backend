@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
+use App\Models\Character;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -17,8 +18,9 @@ class ComicController extends Controller
     {
         $comics = Comic::all();
         $brands = Brand::all();
+        $characters = Character::all();
 
-        return view('comics.index', compact('comics', 'brands'));
+        return view('comics.index', compact('comics', 'brands', 'characters'));
     }
 
     /**
@@ -53,6 +55,8 @@ class ComicController extends Controller
 
         $newComic->save();
 
+        $newComic->characters()->attach($data['characters']);
+
         return redirect()->route('comics.index');
     }
 
@@ -61,7 +65,9 @@ class ComicController extends Controller
      */
     public function show(Comic $comic)
     {
-        return view('comics.show', compact('comic'));
+        $characters = Character::all();
+
+        return view('comics.show', compact('comic', 'characters'));
     }
 
     /**
