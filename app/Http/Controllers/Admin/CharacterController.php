@@ -71,16 +71,31 @@ class CharacterController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Character $character)
     {
-        //
+        $data = $request->all();
+
+        $character->name = $data['name'];
+        $character->description = $data['description'];
+
+        if(array_key_exists('character_img', $data)) {
+            Storage::delete($character->character_img);
+            $img_url = Storage::putFile('characters', $data['character_img']);
+            $character->character_img = $img_url;
+            }
+
+        $character->update();
+
+        return redirect()->route('characters.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Character $character)
     {
-        //
+        $character->delete();
+
+        return redirect()->route('characters.index');
     }
 }
