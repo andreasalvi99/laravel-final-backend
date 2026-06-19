@@ -19,11 +19,10 @@
                 <tbody>
                     @foreach ($characters as $index => $character)
                     <tr>
-                        {{-- <th scope="row">{{$character->id}}</th> --}}
                         <th scope="row">{{$index + 1}}</th>
                         <td>{{$character->name}}</td>
                         <td>
-                            <img src="{{asset('storage/' . $character->character_img)}}" alt="" class="w-25 h-25">
+                            <img src="{{asset('storage/' . $character->character_img)}}" alt="" style="height: 100px; width: 70px">
                         </td>
                         <td>
                             <div class="d-flex gap-1">
