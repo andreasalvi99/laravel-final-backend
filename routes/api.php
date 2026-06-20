@@ -10,3 +10,4 @@ Route::get('/user', function (Request $request) {
 
 Route::get('comics', [ComicController::class, 'index']);
 
+Route::get('comics/{comic}', [ComicController::class, 'show']);

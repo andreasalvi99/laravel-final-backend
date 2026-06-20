@@ -18,4 +18,14 @@ class ComicController extends Controller
             ]
         );   
     }
+
+    public function show(Comic $comic) {
+
+        $comic->load('characters', 'brand');
+
+        return response()->json([
+            'success' => true,
+            'data' => $comic
+        ]);
+    }
 }
