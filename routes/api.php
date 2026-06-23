@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\CharactersController;
 use App\Http\Controllers\Api\ComicController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -11,3 +12,5 @@ Route::get('/user', function (Request $request) {
 Route::get('comics', [ComicController::class, 'index']);
 
 Route::get('comics/{comic}', [ComicController::class, 'show']);
+
+Route::get('characters', [CharactersController::class, 'index']);
