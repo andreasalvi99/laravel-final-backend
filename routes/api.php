@@ -14,3 +14,5 @@ Route::get('comics', [ComicController::class, 'index']);
 Route::get('comics/{comic}', [ComicController::class, 'show']);
 
 Route::get('characters', [CharactersController::class, 'index']);
+
+Route::get('characters/{character}', [CharactersController::class, 'show']);
