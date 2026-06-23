@@ -89,14 +89,14 @@ class CharacterController extends Controller
             $character->character_img = $img_url;
         }
 
-         $img_url = Storage::putFile('characters-banner', $data['banner']);
-            $character->banner = $img_url;
-
-        // if(array_key_exists('banner', $data)) {
-        //     Storage::delete($character->banner);
-        //     $img_url = Storage::putFile('characters-banner', $data['banner']);
+        //  $img_url = Storage::putFile('characters-banner', $data['banner']);
         //     $character->banner = $img_url;
-        // }
+
+        if(array_key_exists('banner', $data)) {
+            Storage::delete($character->banner);
+            $img_url = Storage::putFile('characters-banner', $data['banner']);
+            $character->banner = $img_url;
+        }
 
         $character->update();
 
