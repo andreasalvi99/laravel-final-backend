@@ -72,6 +72,13 @@
                                                     <img src="{{asset('storage/' . $character->character_img)}}" alt="" class="w-50 h-50">
                                                 @endif
                                             </div>
+                                            <div class="mb-3">
+                                                <label for="banner" class="form-label">Banner</label>
+                                                <input type="file" class="form-control" id="banner" name="banner">
+                                                @if ($character->banner)
+                                                    <img src="{{asset('storage/' . $character->banner)}}" alt="" class="w-50 h-50">
+                                                @endif
+                                            </div>
                                             <div class="modal-footer">
                                             <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Chiudi</button>
                                             <button type="submit" class="btn btn-outline-success">Salva</button>
@@ -128,14 +135,6 @@
                     <label for="name" class="form-label">Nome</label>
                     <input type="text" class="form-control" id="name" name="name" required>
                 </div>
-                {{-- <div class="mb-3">
-                    <label for="brand_id" class="form-label">Brand</label>
-                    <select type="text" class="form-control" id="brand_id" name="brand_id">
-                        @foreach ($brands as $brand)
-                            <option value="{{$brand->id}}">{{$brand->name}}</option>
-                        @endforeach
-                    </select>
-                </div> --}}
                 <div class="mb-3">
                     <label for="description" class="form-label">Descrizione</label>
                     <textarea class="form-control" id="description" name="description" rows="2"></textarea>
@@ -143,6 +142,10 @@
                 <div class="mb-3">
                     <label for="character_img" class="form-label">Immagine</label>
                     <input type="file" class="form-control" id="character_img" name="character_img" required>
+                </div>
+                <div class="mb-3">
+                    <label for="banner" class="form-label">Banner</label>
+                    <input type="file" class="form-control" id="banner" name="banner" required>
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Chiudi</button>

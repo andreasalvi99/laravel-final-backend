@@ -46,6 +46,11 @@ class CharacterController extends Controller
             $newCharacter->character_img = $img_url;
         }
 
+        if(array_key_exists('banner', $data)) {
+            $img_url = Storage::putFile('characters-banner', $data['banner']);
+            $newCharacter->banner = $img_url;
+        }
+
         $newCharacter->save();
 
         return redirect()->route('characters.index');
@@ -82,7 +87,16 @@ class CharacterController extends Controller
             Storage::delete($character->character_img);
             $img_url = Storage::putFile('characters', $data['character_img']);
             $character->character_img = $img_url;
-            }
+        }
+
+         $img_url = Storage::putFile('characters-banner', $data['banner']);
+            $character->banner = $img_url;
+
+        // if(array_key_exists('banner', $data)) {
+        //     Storage::delete($character->banner);
+        //     $img_url = Storage::putFile('characters-banner', $data['banner']);
+        //     $character->banner = $img_url;
+        // }
 
         $character->update();
 
