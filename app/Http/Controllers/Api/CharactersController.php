@@ -18,6 +18,8 @@ class CharactersController extends Controller
     }
 
     public function show(Character $character) {
+        $character->load('comics');
+        
        return response()->json([
         'success' => true,
         'results' => $character
