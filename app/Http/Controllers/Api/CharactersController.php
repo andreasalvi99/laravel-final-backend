@@ -8,8 +8,17 @@ use Illuminate\Http\Request;
 
 class CharactersController extends Controller
 {
-    public function index() {
-        $characters = Character::all();
+    public function index(Request $request) {
+
+        $search = $request->query('search');
+
+        $query = Character::query();
+
+        if($request) {
+            $query->where('name', 'LIKE', "%{$search}%");
+        };
+
+        $characters= $query->get();
 
         return response()->json([
             'success' => true,
