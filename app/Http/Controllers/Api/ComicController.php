@@ -34,9 +34,19 @@ class ComicController extends Controller
 
         $comic->load('characters', 'brand');
 
+        $previous = Comic::where('id', '<', $comic->id)
+            ->orderBy('id', 'desc')
+            ->first();
+
+        $next = Comic::where('id', '>', $comic->id)
+            ->orderBy('id')
+            ->first();
+
         return response()->json([
             'success' => true,
-            'data' => $comic
+            'data' => $comic,
+            'previous' => $previous,
+            'next'=> $next
         ]);
     }
 }
