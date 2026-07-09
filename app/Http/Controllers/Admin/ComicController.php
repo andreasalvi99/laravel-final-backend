@@ -44,6 +44,7 @@ class ComicController extends Controller
         
         $newComic->brand_id = $data['brand_id'];
         $newComic->title = $data['title'];
+        $newComic->slug = $data['slug'];
         $newComic->description = $data['description'];
         $newComic->price = $data['price'];
         $newComic->release_date = $data['release_date'];
@@ -91,6 +92,7 @@ class ComicController extends Controller
 
         $comic->title = $data['title'];
         $comic->description = $data['description'];
+        $comic->slug = $data['slug'];
         $comic->brand_id = $data['brand_id'];
         $comic->price = $data['price'];
         $comic->release_date = $data['release_date'];

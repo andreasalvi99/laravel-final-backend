@@ -72,6 +72,10 @@
                                                 <input type="text" class="form-control" id="titolo" name="title" value="{{$comic->title}}">
                                             </div>
                                             <div class="mb-3">
+                                                <label for="slug" class="form-label">slug</label>
+                                                <input type="text" class="form-control" id="slug" name="slug" value="{{$comic->slug}}">
+                                            </div>
+                                            <div class="mb-3">
                                                 <label for="brand_id" class="form-label">Brand</label>
                                                 <select type="text" class="form-control" id="brand_id" name="brand_id">
                                                     @foreach ($brands as $brand)
@@ -161,6 +165,10 @@
                 <div class="mb-3">
                     <label for="titolo" class="form-label">Titolo</label>
                     <input type="text" class="form-control" id="titolo" name="title" required>
+                </div>
+                <div class="mb-3">
+                    <label for="slug" class="form-label">Slug</label>
+                    <input type="text" class="form-control" id="slug" name="slug" required>
                 </div>
                 <div class="mb-3">
                     <label for="brand_id" class="form-label">Brand</label>
