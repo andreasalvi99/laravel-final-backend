@@ -100,6 +100,18 @@
                                                 <input type="text" class="form-control" id="prezzo" name="price" value="{{$comic->price}}">
                                             </div>
                                             <div class="mb-3">
+                                                <label for="is_new" class="form-label">Nuovo arrivo</label>
+                                                <input type="text" class="form-control" id="is_new" name="is_new" value="{{$comic->is_new === 0 ? "No" : "Si"}}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="is_preorder" class="form-label">Preordine</label>
+                                                <input type="text" class="form-control" id="is_preorder" name="is_preorder" value="{{$comic->is_preorder === 0 ? "No" : "Si"}}">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="discount" class="form-label">Sconto</label>
+                                                <input type="text" class="form-control" id="discount" name="discount" value="{{ $comic->discount > 0 ? $comic->discount . '%' : '-' }}">
+                                            </div>
+                                            <div class="mb-3">
                                                 <label for="img" class="form-label">Immagine</label>
                                                 <input type="file" class="form-control" id="img" name="cover_img">
                                                 @if ($comic->cover_img)
