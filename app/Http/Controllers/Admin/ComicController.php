@@ -47,6 +47,9 @@ class ComicController extends Controller
         $newComic->slug = $data['slug'];
         $newComic->description = $data['description'];
         $newComic->price = $data['price'];
+        $newComic->is_new = $data['is_new'];
+        $newComic->is_preorder = $data['is_preorder'];
+        $newComic->discount = $data['discount'];
         $newComic->release_date = $data['release_date'];
 
         if(array_key_exists('cover_img', $data)) {

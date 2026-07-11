@@ -101,15 +101,21 @@
                                             </div>
                                             <div class="mb-3">
                                                 <label for="is_new" class="form-label">Nuovo arrivo</label>
-                                                <input type="text" class="form-control" id="is_new" name="is_new" value="{{$comic->is_new === 0 ? "No" : "Si"}}">
+                                                <select type="text" class="form-control" id="is_new" name="is_new">
+                                                    <option value="0" {{ !$comic->is_new ? 'selected' : '' }}>No</option>
+                                                    <option value="1" {{ $comic->is_new ? 'selected' : '' }}>Sì</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="is_preorder" class="form-label">Preordine</label>
-                                                <input type="text" class="form-control" id="is_preorder" name="is_preorder" value="{{$comic->is_preorder === 0 ? "No" : "Si"}}">
+                                                 <select type="text" class="form-control" id="is_preorder" name="is_preorder">
+                                                    <option value="0" {{ !$comic->is_new ? 'selected' : '' }}>No</option>
+                                                    <option value="1" {{ $comic->is_new ? 'selected' : '' }}>Sì</option>
+                                                </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="discount" class="form-label">Sconto</label>
-                                                <input type="text" class="form-control" id="discount" name="discount" value="{{ $comic->discount > 0 ? $comic->discount . '%' : '-' }}">
+                                                <input type="text" class="form-control" id="discount" name="discount" value="{{ $comic->discount > 0 ? $comic->discount . '%' : '' }}">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="img" class="form-label">Immagine</label>
@@ -206,6 +212,24 @@
                 <div class="mb-3">
                     <label for="prezzo" class="form-label">Prezzo</label>
                     <input type="text" class="form-control" id="prezzo" name="price" required>
+                </div>
+                <div class="mb-3">
+                    <label for="is_new" class="form-label">Nuovo Arrivo</label>
+                    <select type="text" class="form-control" id="is_new" name="is_new">
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="is_preorder" class="form-label">Preordine</label>
+                    <select type="text" class="form-control" id="is_preorder" name="is_preorder">
+                        <option value="0">No</option>
+                        <option value="1">Si</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="discount" class="form-label">Sconto</label>
+                    <input type="text" class="form-control" id="discount" name="discount">
                 </div>
                 <div class="mb-3">
                     <label for="img" class="form-label">Immagine</label>
