@@ -95,6 +95,9 @@ class ComicController extends Controller
         $comic->slug = $data['slug'];
         $comic->brand_id = $data['brand_id'];
         $comic->price = $data['price'];
+        $comic->is_new = $data['is_new'];
+        $comic->is_preorder = $data['is_preorder'];
+        $comic->discount = $data['discount'];
         $comic->release_date = $data['release_date'];
 
         // dd($data);
