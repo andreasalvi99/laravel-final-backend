@@ -16,6 +16,9 @@
                         <th scope="col">Brand</th>
                         <th scope="col">Pubblicazione</th>
                         <th scope="col">Prezzo</th>
+                        <th scope="col">Latest</th>
+                        <th scope="col">Preorder</th>
+                        <th scope="col">Sconto</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,6 +43,21 @@
                             <td>
                                 <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
                                     &euro;{{$comic->price}}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
+                                    {{$comic->is_new === 0 ? "No" : "Si"}}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
+                                    {{$comic->is_preorder === 0 ? "No" : "Si"}}
+                                </a>
+                            </td>
+                            <td>
+                                <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
+                                    {{$comic->discount > 0 ? $comic->discount . '%' : '-' }}
                                 </a>
                             </td>
                             <td class="d-flex gap-2">
