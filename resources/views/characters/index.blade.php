@@ -22,7 +22,7 @@
                         <th scope="row">{{$index + 1}}</th>
                         <td>
                                 <a href="{{route('characters.show', $character->id)}}">
-                                    <img src="{{asset('storage/' . $character->character_img)}}" alt="" style="height: 80px; width: 75px" class="rounded-circle">
+                                    <img src="{{asset('img/' . $character->character_img)}}" alt="" style="height: 80px; width: 75px" class="rounded-circle">
                                 </a>
                             </td>
                             <td>
@@ -69,14 +69,14 @@
                                                 <label for="character_img" class="form-label">Immagine</label>
                                                 <input type="file" class="form-control" id="character_img" name="character_img">
                                                 @if ($character->character_img)
-                                                    <img src="{{asset('storage/' . $character->character_img)}}" alt="" class="w-50 h-50">
+                                                    <img src="{{asset('img/' . $character->character_img)}}" alt="" class="w-50 h-50">
                                                 @endif
                                             </div>
                                             <div class="mb-3">
                                                 <label for="banner" class="form-label">Banner</label>
                                                 <input type="file" class="form-control" id="banner" name="banner">
                                                 @if ($character->banner)
-                                                    <img src="{{asset('storage/' . $character->banner)}}" alt="" class="w-50 h-50">
+                                                    <img src="{{asset('img/' . $character->banner)}}" alt="" class="w-50 h-50">
                                                 @endif
                                             </div>
                                             <div class="modal-footer">

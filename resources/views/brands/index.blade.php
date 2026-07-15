@@ -23,7 +23,7 @@
                         <td>{{$brand->name}}</td>
                         <td>{{$brand->description}}</td>
                         <td>
-                            <img src="{{asset('storage/' . $brand->logo)}}" alt="" class="w-50 h-50
+                            <img src="{{asset('img/' . $brand->logo)}}" alt="" class="w-50 h-50
                             ">
                         </td>
                         <td>
