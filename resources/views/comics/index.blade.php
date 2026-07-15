@@ -33,7 +33,7 @@
                             </td>
                              <td>
                                 <a href="{{route('comics.show', $comic->id)}}" class="text-decoration-none text-dark">
-                                    <img src="{{asset('storage/' . $comic->brand->logo)}}" alt="" style="height: 30px">
+                                    <img src="{{asset('img/' . $comic->brand->logo)}}" alt="" style="height: 30px">
                              </a>
                             </td>
                             <td>
@@ -140,7 +140,7 @@
                                                 <label for="img" class="form-label">Immagine</label>
                                                 <input type="file" class="form-control" id="img" name="cover_img">
                                                 @if ($comic->cover_img)
-                                                    <img src="{{asset('storage/' . $comic->cover_img)}}" alt="" class="w-50 h-50">
+                                                    <img src="{{asset('img/' . $comic->cover_img)}}" alt="" class="w-50 h-50">
                                                 @endif
                                             </div>
                                             <div class="mb-3">
