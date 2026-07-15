@@ -16,6 +16,7 @@ class ComicController extends Controller
      */
     public function index()
     {
+
         $comics = Comic::all();
         $brands = Brand::all();
         $characters = Character::all();

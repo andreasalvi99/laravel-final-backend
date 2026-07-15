@@ -1,4 +1,5 @@
 @extends('layouts.app')
+<h1>TEST COMICS</h1>
 
 @section('content')
     <section id="comics">
