@@ -10,12 +10,10 @@ class ComicController extends Controller
 {
     public function index(Request $request) {
 
-        $search = $request->query('search');
-
         $query = Comic::query();
 
-        if($search) {
-            $query->where('title', 'LIKE', "%{$search}%");
+        if($request->filled('search')) {
+            $query->where('title', 'LIKE', '%' . $request->query('search') . '%');
         };
 
         $comics = $query->get();

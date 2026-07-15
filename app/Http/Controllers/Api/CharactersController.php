@@ -14,8 +14,8 @@ class CharactersController extends Controller
 
         $query = Character::query();
 
-        if($request) {
-            $query->where('name', 'LIKE', "%{$search}%");
+        if($request->filled('search')) {
+            $query->where('name', 'LIKE', '%' . $request->query('search') . '%');
         };
 
         $characters= $query->get();
