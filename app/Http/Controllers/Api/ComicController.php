@@ -24,7 +24,7 @@ class ComicController extends Controller
 
       
 
-        dd(DB::connection()->getDatabaseName());
+        dd(DB::select("SELECT HEX(description) AS hex FROM comics WHERE id = 1"));
             
         return response()->json(
             [
