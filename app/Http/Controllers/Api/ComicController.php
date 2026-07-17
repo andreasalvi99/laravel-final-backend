@@ -22,11 +22,12 @@ class ComicController extends Controller
 
         // $comics = Comic::all();
 
-       $comic = DB::select("SELECT description FROM comics WHERE id = 1");
+       $pdo = DB::connection()->getPdo();
 
         dd([
-            'php_version' => PHP_VERSION,
-            'pdo_drivers' => PDO::getAvailableDrivers(),
+            'mysql_client_version' => $pdo->getAttribute(PDO::ATTR_CLIENT_VERSION),
+            'server_version' => $pdo->getAttribute(PDO::ATTR_SERVER_VERSION),
+                'connection_status' => $pdo->getAttribute(PDO::ATTR_CONNECTION_STATUS),
         ]);
             
         return response()->json(
