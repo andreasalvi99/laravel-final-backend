@@ -14,8 +14,8 @@ class ComicTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $dc = Brand::where('name', 'DC Comics')->first();
-
+        $dc = Brand::where('name', 'Marvel Comics')->first();
+        
         $newComic = new Comic();
 
         $newComic->title = 'AQUAMAN #49';
