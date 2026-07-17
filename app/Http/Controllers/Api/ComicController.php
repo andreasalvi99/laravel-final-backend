@@ -21,7 +21,7 @@ class ComicController extends Controller
 
         // $comics = Comic::all();
 
-        dd(DB::select("SELECT @@character_set_connection, @@collation_connection"));
+        dd(bin2hex($comics[0]->description));
             
         return response()->json(
             [
