@@ -21,10 +21,6 @@ class ComicController extends Controller
         $comics = $query->get();
 
         // $comics = Comic::all();
-
-      
-
-       dd(DB::select("SELECT HEX(description) AS hex FROM comics WHERE id = 1"));
             
         return response()->json(
             [
