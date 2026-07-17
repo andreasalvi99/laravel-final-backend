@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ComicController extends Controller
 {
@@ -19,6 +20,8 @@ class ComicController extends Controller
         $comics = $query->get();
 
         // $comics = Comic::all();
+
+        dd(DB::select("SHOW VARIABLES LIKE 'character_set%'"));
             
         return response()->json(
             [
