@@ -22,13 +22,9 @@ class ComicController extends Controller
 
         // $comics = Comic::all();
 
-       $pdo = DB::connection()->getPdo();
+      
 
-        dd([
-            'mysql_client_version' => $pdo->getAttribute(PDO::ATTR_CLIENT_VERSION),
-            'server_version' => $pdo->getAttribute(PDO::ATTR_SERVER_VERSION),
-                'connection_status' => $pdo->getAttribute(PDO::ATTR_CONNECTION_STATUS),
-        ]);
+        dd(DB::select("SELECT HEX(description) AS hex FROM comics WHERE id = 1"));
             
         return response()->json(
             [
