@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ComicController extends Controller
 {
@@ -20,7 +21,9 @@ class ComicController extends Controller
 
         // $comics = Comic::all();
 
-       dd($comics[0]->description);
+       $comic = DB::select("SELECT description FROM comics WHERE id = 1");
+
+        dd($comic[0]->description);
             
         return response()->json(
             [
