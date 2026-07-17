@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Comic;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDO;
 
 class ComicController extends Controller
 {
@@ -23,7 +24,10 @@ class ComicController extends Controller
 
        $comic = DB::select("SELECT description FROM comics WHERE id = 1");
 
-        dd(bin2hex($comic[0]->description));
+        dd([
+            'php_version' => PHP_VERSION,
+            'pdo_drivers' => PDO::getAvailableDrivers(),
+        ]);
             
         return response()->json(
             [
