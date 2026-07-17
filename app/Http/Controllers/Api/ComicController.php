@@ -23,7 +23,7 @@ class ComicController extends Controller
 
        $comic = DB::select("SELECT description FROM comics WHERE id = 1");
 
-        dd($comic[0]->description);
+        dd(bin2hex($comic[0]->description));
             
         return response()->json(
             [
