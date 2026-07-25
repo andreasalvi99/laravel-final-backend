@@ -13,9 +13,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         $this->call([
-        BrandTableSeeder::class,
-        ComicTableSeeder::class,
-    ]);
+    //      $this->call([
+    //     BrandTableSeeder::class,
+    //     ComicTableSeeder::class,
+    // ]);
     }
 }
