@@ -32,11 +32,14 @@ Route::get('/comics', function () {
     return 'COMICS INDEX TEST';
 });
 
-Route::resource('comics', ComicController::class);
+Route::resource('comics', ComicController::class)
+    ->middleware(['auth', 'verified']);
 
-Route::resource('brands', BrandController::class);
+Route::resource('brands', BrandController::class)
+    ->middleware(['auth', 'verified']);
 
-Route::resource('characters', CharacterController::class);
+Route::resource('characters', CharacterController::class)
+    ->middleware(['auth', 'verified']);
 
     Route::get('/test', function () {
     return 'OK';
