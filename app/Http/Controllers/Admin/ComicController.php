@@ -71,6 +71,8 @@ class ComicController extends Controller
                 'exists' => file_exists(public_path('img/comics/' . $fileName)),
                 'url' => asset('img/comics/' . $fileName),
             ]);
+
+            $newComic->cover_img = 'comics/' . $fileName;
         }
 
         $newComic->save();
