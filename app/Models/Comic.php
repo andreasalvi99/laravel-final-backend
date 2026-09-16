@@ -13,4 +13,8 @@ class Comic extends Model
     public function characters() {
         return $this->belongsToMany(Character::class);
     }
+
+    public function orders() {
+        return $this->belongsToMany(Order::class);
+    }
 }
