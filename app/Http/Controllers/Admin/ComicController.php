@@ -54,12 +54,12 @@ class ComicController extends Controller
         $newComic->release_date = $data['release_date'];
 
         if(array_key_exists('cover_img', $data)) {
-            // $img_url = Storage::putFile('comics', $data['cover_img']);
-            // $newComic->cover_img = $img_url;
-            $file = $data['cover_img'];
-            $fileName = $file->hashName();
-            $file->move(public_path('img/comics'), $fileName);
-            $newComic->cover_img = 'img/comics/' . $fileName;
+            $img_url = Storage::putFile('comics', $data['cover_img']);
+            $newComic->cover_img = $img_url;
+            // $file = $data['cover_img'];
+            // $fileName = $file->hashName();
+            // $file->move(public_path('img/comics'), $fileName);
+            // $newComic->cover_img = 'img/comics/' . $fileName;
         }
 
         $newComic->save();
