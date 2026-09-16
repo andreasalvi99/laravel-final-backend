@@ -39,7 +39,7 @@ class ComicController extends Controller
     {
         $data = $request->all();
 
-        // dd($data);
+        dd($data);
 
         $newComic = new Comic();
         
