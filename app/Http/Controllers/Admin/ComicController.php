@@ -39,7 +39,7 @@ class ComicController extends Controller
     {
         $data = $request->all();
 
-        dd($data);
+        // dd($data);
 
         $newComic = new Comic();
         
@@ -55,6 +55,7 @@ class ComicController extends Controller
 
         if(array_key_exists('cover_img', $data)) {
             $img_url = Storage::putFile('comics', $data['cover_img']);
+            dd($img_url);
             $newComic->cover_img = $img_url;
         }
 
