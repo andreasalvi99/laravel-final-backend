@@ -66,11 +66,11 @@ class ComicController extends Controller
 
             $file->move(public_path('img/comics'), $fileName);
 
-            dd([
-                'path' => public_path('img/comics/' . $fileName),
-                'exists' => file_exists(public_path('img/comics/' . $fileName)),
-                'url' => asset('img/comics/' . $fileName),
-            ]);
+            // dd([
+            //     'path' => public_path('img/comics/' . $fileName),
+            //     'exists' => file_exists(public_path('img/comics/' . $fileName)),
+            //     'url' => asset('img/comics/' . $fileName),
+            // ]);
 
             $newComic->cover_img = 'comics/' . $fileName;
         }
