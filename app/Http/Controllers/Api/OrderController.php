@@ -11,12 +11,6 @@ class OrderController extends Controller
     public function store(Request $request)
     {
 
-        return response()->json([
-        'message' => 'Controller raggiunto',
-        'data' => $request->all()
-    ]);
-
-
         $data = $request->all();
 
         $newOrder = new Order();
