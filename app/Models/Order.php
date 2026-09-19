@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     public function comics() {
-        return $this->belongsToMany(Comic::class);
+        return $this->belongsToMany(Comic::class)->withPivot('quantity', 'price');
     }
 }
