@@ -10,6 +10,9 @@ class OrderController extends Controller
 {
     public function store(Request $request)
     {
+
+        dd($request->all());
+
         $data = $request->all();
 
         $newOrder = new Order();
