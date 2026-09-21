@@ -25,7 +25,7 @@ class OrderController extends Controller
         $newOrder->province = $data['province'];
         $newOrder->zipcode = $data['zipcode'];
         $newOrder->total = $data['total'];
-        $newOrder->shipping_method['shipping_method'];
+        $newOrder->shipping_method = $data['shipping_method'];
 
         $newOrder->save();
 
