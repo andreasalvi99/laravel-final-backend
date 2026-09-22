@@ -36,6 +36,6 @@ class OrderController extends Controller
                 ]);
         }
 
-        return response()->json($newOrder, 201);
+        return response()->json(['order' => $newOrder], 201);
     }
 }

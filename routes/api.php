@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\CharactersController;
 use App\Http\Controllers\Api\ComicController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\PaymentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,5 @@ Route::get('characters', [CharactersController::class, 'index']);
 Route::get('characters/{character}', [CharactersController::class, 'show']);
 
 Route::post('/orders', [OrderController::class, 'store']);
+
+Route::post('/orders/{order}/payment-intent', [PaymentController::class, 'createIntent']);
