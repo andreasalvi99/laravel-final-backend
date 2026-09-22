@@ -32,6 +32,7 @@ class PaymentController extends Controller
 
         return response()->json([
             'clientSecret' => $paymentIntent->client_secret,
+            'total'=>$order->total
         ]);
     }
 }
