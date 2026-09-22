@@ -22,3 +22,5 @@ Route::get('characters/{character}', [CharactersController::class, 'show']);
 Route::post('/orders', [OrderController::class, 'store']);
 
 Route::post('/orders/{order}/payment-intent', [PaymentController::class, 'createIntent']);
+
+Route::get('/orders/{order}', [OrderController::class, 'show']);
