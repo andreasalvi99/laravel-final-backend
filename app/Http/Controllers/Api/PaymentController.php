@@ -35,10 +35,4 @@ class PaymentController extends Controller
             'total'=>$order->total
         ]);
     }
-
-    public function show(Order $order) {
-        return response()->json([
-            'order' => $order->load('comics')
-        ]);
-    }
 }

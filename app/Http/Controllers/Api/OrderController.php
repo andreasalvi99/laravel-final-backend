@@ -38,4 +38,10 @@ class OrderController extends Controller
 
         return response()->json(['order' => $newOrder], 201);
     }
+
+    public function show(Order $order) {
+        return response()->json([
+            'order' => $order->load('comics')
+        ]);
+    }
 }
