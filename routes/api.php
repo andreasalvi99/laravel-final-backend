@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\CharactersController;
 use App\Http\Controllers\Api\ComicController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\PaymentController;
+use App\Http\Controllers\Api\StripeWebhookController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -24,3 +25,5 @@ Route::post('/orders', [OrderController::class, 'store']);
 Route::post('/orders/{order}/payment-intent', [PaymentController::class, 'createIntent']);
 
 Route::get('/orders/{order}', [OrderController::class, 'show']);
+
+Route::post('/stripe/webhook', [StripeWebhookController::class, 'handle']);
